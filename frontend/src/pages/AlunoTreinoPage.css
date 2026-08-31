@@ -1,0 +1,7 @@
+.aluno-treino__subtitulo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--sp-5);
+}

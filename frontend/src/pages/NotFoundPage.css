@@ -1,0 +1,40 @@
+.not-found-page {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4);
+  background: radial-gradient(circle at 50% 0%, var(--cor-destaque-fundo-suave) 0%, var(--cor-fundo) 55%);
+}
+
+.not-found-page__conteudo {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.not-found-page__icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--raio-md);
+  background: var(--cor-destaque);
+  color: var(--cor-destaque-texto);
+  margin-bottom: var(--sp-4);
+}
+
+.not-found-page__codigo {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--cor-destaque);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--sp-1);
+}
+
+.not-found-page__mensagem {
+  color: var(--cor-texto-suave);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--sp-5);
+}

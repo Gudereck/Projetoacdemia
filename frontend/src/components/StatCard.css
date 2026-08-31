@@ -1,0 +1,58 @@
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: var(--sp-4);
+  box-shadow: var(--sombra-card);
+  transition: box-shadow var(--duracao-transicao), transform var(--duracao-transicao);
+}
+
+.stat-card:hover {
+  box-shadow: var(--sombra-card-hover);
+  transform: translateY(-1px);
+}
+
+.stat-card__icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--raio-sm);
+  flex-shrink: 0;
+}
+
+.stat-card--destaque .stat-card__icone {
+  background: var(--cor-destaque-fundo-suave);
+  color: var(--cor-destaque-hover);
+}
+
+.stat-card--sucesso .stat-card__icone {
+  background: var(--cor-sucesso-fundo-suave);
+  color: var(--cor-sucesso);
+}
+
+.stat-card--info .stat-card__icone {
+  background: var(--cor-info-fundo-suave);
+  color: var(--cor-info);
+}
+
+.stat-card--neutro .stat-card__icone {
+  background: var(--cor-fundo-painel);
+  color: var(--cor-texto-suave);
+}
+
+.stat-card__valor {
+  font-size: var(--fs-lg);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.stat-card__rotulo {
+  font-size: var(--fs-xs);
+  color: var(--cor-texto-suave);
+  margin: 2px 0 0;
+}

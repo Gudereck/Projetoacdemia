@@ -1,0 +1,68 @@
+.week-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.week-table__dia {
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: var(--sp-4);
+  box-shadow: var(--sombra-card);
+  transition: box-shadow var(--duracao-transicao);
+}
+
+.week-table__dia--hoje {
+  border-color: var(--cor-destaque);
+  border-width: 2px;
+  background: linear-gradient(180deg, var(--cor-destaque-fundo-suave) 0%, var(--cor-fundo-card) 90px);
+  box-shadow: var(--sombra-card-hover);
+}
+
+.week-table__cabecalho-dia {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-3);
+}
+
+.week-table__cabecalho-dia h3 {
+  margin: 0;
+}
+
+.week-table__descanso {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--cor-texto-suave);
+  font-size: var(--fs-sm);
+  margin: 0;
+}
+
+.week-table__selo-hoje {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.week-table__treino + .week-table__treino {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.week-table__nome-treino {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-weight: 700;
+  margin: 0 0 var(--sp-2);
+  color: var(--cor-destaque-hover);
+}
+
+.week-table__sem-exercicio {
+  color: var(--cor-texto-suave);
+  font-size: var(--fs-sm);
+  margin: 0;
+}

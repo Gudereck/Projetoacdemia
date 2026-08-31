@@ -1,0 +1,4 @@
+spring.datasource.username=SEU_USUARIO
+spring.datasource.password=SUA_SENHA
+
+app.jwt.secret=GERE_UM_SEGREDO_ALEATORIO_LONGO_AQUI

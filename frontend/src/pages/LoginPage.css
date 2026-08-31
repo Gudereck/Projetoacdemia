@@ -1,0 +1,55 @@
+.login-page {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4);
+  background: radial-gradient(circle at 50% 0%, var(--cor-destaque-fundo-suave) 0%, var(--cor-fundo) 55%);
+}
+
+.login-page__form {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.login-page__marca {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--raio-md);
+  background: var(--cor-destaque);
+  color: var(--cor-destaque-texto);
+  margin-bottom: var(--sp-4);
+}
+
+.login-page__subtitulo {
+  color: var(--cor-texto-suave);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--sp-5);
+}
+
+.login-page__campo-icone {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-page__campo-icone svg {
+  position: absolute;
+  left: var(--sp-3);
+  color: var(--cor-texto-suave);
+  pointer-events: none;
+}
+
+.login-page__campo-icone input {
+  width: 100%;
+  padding-left: calc(var(--sp-3) * 2 + 16px);
+}
+
+.login-page__botao {
+  width: 100%;
+  padding: var(--sp-3);
+}

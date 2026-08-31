@@ -1,0 +1,49 @@
+services:
+  db:
+    image: postgres:16
+    container_name: academia-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ProjetoAcademia
+      POSTGRES_USER: Gustavo
+      POSTGRES_PASSWORD: Acad212195
+      REPLICATION_USER: replicator
+      REPLICATION_PASSWORD: replica_senha_123
+    command: >
+      postgres
+      -c wal_level=replica
+      -c max_wal_senders=10
+      -c max_replication_slots=10
+      -c hot_standby=on
+    ports:
+      - "5432:5432"
+    volumes:
+      - academia_db_data:/var/lib/postgresql/data
+      - ./db/primary/init-replication.sh:/docker-entrypoint-initdb.d/init-replication.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U Gustavo"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  db-replica:
+    build:
+      context: ./db/replica
+    container_name: academia-db-replica
+    restart: unless-stopped
+    environment:
+      PRIMARY_HOST: db
+      REPLICATION_USER: replicator
+      REPLICATION_PASSWORD: replica_senha_123
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    volumes:
+      - academia_db_replica_data:/var/lib/postgresql/data
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  academia_db_data:
+  academia_db_replica_data:

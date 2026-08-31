@@ -1,0 +1,51 @@
+:root {
+  --cor-fundo: #faf9f6;
+  --cor-fundo-painel: #f0efe9;
+  --cor-fundo-card: #ffffff;
+  --cor-texto: #1e211c;
+  --cor-texto-suave: #5c6259;
+  --cor-borda: #dcd8cd;
+  --cor-borda-forte: #1e211c;
+
+  --cor-destaque: #d9691f;
+  --cor-destaque-hover: #b8560f;
+  --cor-destaque-texto: #ffffff;
+  --cor-destaque-fundo-suave: #fbe8d8;
+
+  --cor-erro: #c4291c;
+  --cor-erro-fundo-suave: #f8ded9;
+  --cor-sucesso: #2f7a4d;
+  --cor-sucesso-fundo-suave: #dcefe1;
+
+  --cor-info: #2f6a7a;
+  --cor-info-fundo-suave: #dcedf1;
+
+  --cor-skeleton: #e8e5db;
+  --cor-skeleton-brilho: #f5f3ec;
+
+  --sombra-card: 0 1px 2px rgba(30, 33, 28, 0.06);
+  --sombra-card-hover: 0 6px 16px rgba(30, 33, 28, 0.1);
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.75rem;
+
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+
+  --raio-sm: 6px;
+  --raio-md: 10px;
+
+  --fonte-sistema:
+    -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --duracao-transicao: 160ms;
+}

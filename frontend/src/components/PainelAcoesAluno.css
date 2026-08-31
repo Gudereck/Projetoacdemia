@@ -1,0 +1,140 @@
+.painel-aluno {
+  margin-top: var(--sp-4);
+  text-align: left;
+}
+
+.painel-aluno__cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-4);
+}
+
+.painel-aluno__cabecalho h3 {
+  margin: 0;
+}
+
+.painel-aluno__fechar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--raio-sm);
+  border: none;
+  background: none;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+}
+
+.painel-aluno__fechar:hover {
+  background: var(--cor-fundo-painel);
+  color: var(--cor-texto);
+}
+
+.painel-aluno__secao {
+  padding: var(--sp-4) 0;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.painel-aluno__secao:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.painel-aluno__secao h4 {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--cor-texto-suave);
+}
+
+.painel-aluno__form-linha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--sp-3);
+}
+
+.painel-aluno__form-linha .campo {
+  margin-bottom: 0;
+  min-width: 160px;
+  flex: 1;
+}
+
+.painel-aluno__form-linha .botao {
+  height: 2.6rem;
+}
+
+.painel-aluno__status-ok {
+  color: var(--cor-sucesso);
+  font-size: var(--fs-sm);
+  margin: var(--sp-2) 0 0;
+}
+
+.painel-aluno__status-erro {
+  color: var(--cor-erro);
+  font-size: var(--fs-sm);
+  margin: var(--sp-2) 0 0;
+}
+
+.painel-aluno__aviso {
+  color: var(--cor-texto-suave);
+  font-size: var(--fs-sm);
+  margin: 0;
+}
+
+.painel-aluno__lista-matriculas,
+.painel-aluno__lista-pagamentos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.painel-aluno__lista-matriculas li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--cor-fundo-painel);
+  border-radius: var(--raio-sm);
+  font-size: var(--fs-sm);
+}
+
+.painel-aluno__periodo {
+  color: var(--cor-texto-suave);
+  margin-left: auto;
+}
+
+.painel-aluno__linha-pagamento {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--cor-fundo-painel);
+  border-radius: var(--raio-sm);
+  font-size: var(--fs-sm);
+}
+
+.painel-aluno__linha-pagamento .botao {
+  margin-left: auto;
+}
+
+.painel-aluno__form-registrar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  margin-top: var(--sp-1);
+  background: var(--cor-destaque-fundo-suave);
+  border-radius: var(--raio-sm);
+}
+
+.painel-aluno__form-registrar .campo {
+  margin-bottom: 0;
+}

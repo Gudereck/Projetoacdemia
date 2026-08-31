@@ -1,0 +1,20 @@
+# Backend (Gradle)
+backend/build/
+backend/.gradle/
+backend/src/main/resources/application-local.properties
+!backend/src/main/resources/application-local.properties.example
+
+# Frontend (Vite)
+frontend/node_modules/
+frontend/dist/
+
+# Referencias externas (nao fazem parte do projeto)
+referencias/
+spring-petclinic/
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
