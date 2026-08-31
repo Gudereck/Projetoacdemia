@@ -25,6 +25,11 @@ public class PlanoController {
         return planoService.listarAtivos().stream().map(PlanoResponse::from).toList();
     }
 
+    @GetMapping("/publico")
+    public List<PlanoResponse> listarPublico() {
+        return planoService.listarAtivos().stream().map(PlanoResponse::from).toList();
+    }
+
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole('ADMIN', 'ATENDENTE')")
     public PlanoResponse buscar(@PathVariable Long id) {

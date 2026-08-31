@@ -1,7 +1,7 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { useAuth } from "./auth/AuthContext";
+import { Route, Routes } from "react-router-dom";
 import { RequireAuth } from "./auth/RequireAuth";
 import { Layout } from "./components/Layout";
+import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { AlunoTreinoPage } from "./pages/AlunoTreinoPage";
 import { ProfessorPage } from "./pages/ProfessorPage";
@@ -9,26 +9,10 @@ import { AdminPage } from "./pages/AdminPage";
 import { RecepcaoPage } from "./pages/RecepcaoPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
-function InicioRedirect() {
-  const { usuario } = useAuth();
-
-  switch (usuario.perfil) {
-    case "ALUNO":
-      return <Navigate to="/meu-treino" replace />;
-    case "PROFESSOR":
-      return <Navigate to="/professor" replace />;
-    case "ADMIN":
-      return <Navigate to="/admin" replace />;
-    case "ATENDENTE":
-      return <Navigate to="/recepcao" replace />;
-    default:
-      return <Navigate to="/login" replace />;
-  }
-}
-
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
 
       <Route
@@ -38,8 +22,6 @@ function App() {
           </RequireAuth>
         }
       >
-        <Route index element={<InicioRedirect />} />
-
         <Route
           path="/meu-treino"
           element={
