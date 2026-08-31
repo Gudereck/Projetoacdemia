@@ -11,17 +11,17 @@ A réplica é populada automaticamente na primeira subida via `pg_basebackup` (s
 
 ## Credenciais (dev only)
 
-Usuário de replicação: `replicator` / senha `replica_senha_123` (definidos em `docker-compose.yml`, junto com a senha do banco principal). Mesma observação de sempre: mover para variável de ambiente antes de qualquer deploy real.
+Usuário de replicação: `replicator`. Usuário/senha do banco principal e a senha de replicação vêm do arquivo `.env` (não versionado — copie de `.env.example` e ajuste os valores) e são injetados no `docker-compose.yml` via variáveis de ambiente.
 
 ## Setup automático vs. manual
 
 O script `db/primary/init-replication.sh` (que cria o role `replicator` e libera `pg_hba.conf` para conexões de replicação) só roda automaticamente quando o Postgres **inicializa um volume vazio pela primeira vez** (comportamento padrão do `docker-entrypoint-initdb.d`). Se você já tinha um volume `academia_db_data` de antes de a réplica existir, esse script não vai rodar sozinho — é preciso aplicar manualmente uma vez:
 
 ```bash
-docker exec academia-db psql -U Gustavo -d ProjetoAcademia -c \
-  "CREATE ROLE replicator WITH REPLICATION LOGIN PASSWORD 'replica_senha_123';"
+docker exec academia-db psql -U "$POSTGRES_USER" -d ProjetoAcademia -c \
+  "CREATE ROLE replicator WITH REPLICATION LOGIN PASSWORD '$REPLICATION_PASSWORD';"
 docker exec academia-db bash -c 'echo "host replication replicator 0.0.0.0/0 md5" >> "$PGDATA/pg_hba.conf"'
-docker exec academia-db psql -U Gustavo -d ProjetoAcademia -c "SELECT pg_reload_conf();"
+docker exec academia-db psql -U "$POSTGRES_USER" -d ProjetoAcademia -c "SELECT pg_reload_conf();"
 docker compose restart db-replica
 ```
 

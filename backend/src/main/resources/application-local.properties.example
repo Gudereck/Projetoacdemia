@@ -2,3 +2,7 @@ spring.datasource.username=SEU_USUARIO
 spring.datasource.password=SUA_SENHA
 
 app.jwt.secret=GERE_UM_SEGREDO_ALEATORIO_LONGO_AQUI
+
+# Altere antes de subir em producao (usados apenas na 1a execucao, com banco vazio)
+app.admin.email=admin@academia.local
+app.admin.password=TROQUE_ESTA_SENHA
