@@ -1,0 +1,20 @@
+.formulario-cartao {
+  margin-bottom: var(--sp-4);
+  text-align: left;
+}
+
+.formulario-cartao h3 {
+  margin-bottom: var(--sp-4);
+}
+
+.formulario-cartao__grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0 var(--sp-4);
+}
+
+.formulario-cartao__acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-2);
+}

@@ -9,6 +9,9 @@ import { listarUsuarios, inativarUsuario } from "../api/usuarios";
 import { StatCard } from "../components/StatCard";
 import { SkeletonCartoes, SkeletonTabela } from "../components/Skeleton";
 import { FormularioUsuario } from "../components/FormularioUsuario";
+import { FormularioProfessor } from "../components/FormularioProfessor";
+import { FormularioPlano } from "../components/FormularioPlano";
+import { FormularioEquipamento } from "../components/FormularioEquipamento";
 import "./AdminPage.css";
 
 const ABAS = [
@@ -209,6 +212,9 @@ export function AdminPage() {
   const [dados, setDados] = useState(null);
   const [erro, setErro] = useState(null);
   const [mostrarFormularioUsuario, setMostrarFormularioUsuario] = useState(false);
+  const [mostrarFormularioProfessor, setMostrarFormularioProfessor] = useState(false);
+  const [mostrarFormularioPlano, setMostrarFormularioPlano] = useState(false);
+  const [mostrarFormularioEquipamento, setMostrarFormularioEquipamento] = useState(false);
 
   function carregarTudo() {
     return Promise.all([
@@ -252,6 +258,21 @@ export function AdminPage() {
   function aoCriarUsuario(usuarioCriado) {
     setDados((atual) => ({ ...atual, usuarios: [...atual.usuarios, usuarioCriado] }));
     setMostrarFormularioUsuario(false);
+  }
+
+  function aoCriarProfessor(professorCriado) {
+    setDados((atual) => ({ ...atual, professores: [...atual.professores, professorCriado] }));
+    setMostrarFormularioProfessor(false);
+  }
+
+  function aoCriarPlano(planoCriado) {
+    setDados((atual) => ({ ...atual, planos: [...atual.planos, planoCriado] }));
+    setMostrarFormularioPlano(false);
+  }
+
+  function aoCriarEquipamento(equipamentoCriado) {
+    setDados((atual) => ({ ...atual, equipamentos: [...atual.equipamentos, equipamentoCriado] }));
+    setMostrarFormularioEquipamento(false);
   }
 
   if (erro) {
@@ -305,18 +326,66 @@ export function AdminPage() {
             </div>
           )}
           {abaAtiva === "professores" && (
-            <div className="cartao" style={{ padding: 0 }}>
-              <TabelaProfessores professores={dados.professores} />
+            <div>
+              {mostrarFormularioProfessor ? (
+                <FormularioProfessor onCriado={aoCriarProfessor} onCancelar={() => setMostrarFormularioProfessor(false)} />
+              ) : (
+                <button
+                  type="button"
+                  className="botao botao-primario"
+                  style={{ marginBottom: "var(--sp-4)" }}
+                  onClick={() => setMostrarFormularioProfessor(true)}
+                >
+                  <Plus size={16} strokeWidth={2.5} />
+                  Novo professor
+                </button>
+              )}
+              <div className="cartao" style={{ padding: 0 }}>
+                <TabelaProfessores professores={dados.professores} />
+              </div>
             </div>
           )}
           {abaAtiva === "planos" && (
-            <div className="cartao" style={{ padding: 0 }}>
-              <TabelaPlanos planos={dados.planos} onRemover={removerPlano} />
+            <div>
+              {mostrarFormularioPlano ? (
+                <FormularioPlano onCriado={aoCriarPlano} onCancelar={() => setMostrarFormularioPlano(false)} />
+              ) : (
+                <button
+                  type="button"
+                  className="botao botao-primario"
+                  style={{ marginBottom: "var(--sp-4)" }}
+                  onClick={() => setMostrarFormularioPlano(true)}
+                >
+                  <Plus size={16} strokeWidth={2.5} />
+                  Novo plano
+                </button>
+              )}
+              <div className="cartao" style={{ padding: 0 }}>
+                <TabelaPlanos planos={dados.planos} onRemover={removerPlano} />
+              </div>
             </div>
           )}
           {abaAtiva === "equipamentos" && (
-            <div className="cartao" style={{ padding: 0 }}>
-              <TabelaEquipamentos equipamentos={dados.equipamentos} />
+            <div>
+              {mostrarFormularioEquipamento ? (
+                <FormularioEquipamento
+                  onCriado={aoCriarEquipamento}
+                  onCancelar={() => setMostrarFormularioEquipamento(false)}
+                />
+              ) : (
+                <button
+                  type="button"
+                  className="botao botao-primario"
+                  style={{ marginBottom: "var(--sp-4)" }}
+                  onClick={() => setMostrarFormularioEquipamento(true)}
+                >
+                  <Plus size={16} strokeWidth={2.5} />
+                  Novo equipamento
+                </button>
+              )}
+              <div className="cartao" style={{ padding: 0 }}>
+                <TabelaEquipamentos equipamentos={dados.equipamentos} />
+              </div>
             </div>
           )}
           {abaAtiva === "usuarios" && (

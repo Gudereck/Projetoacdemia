@@ -5,15 +5,25 @@
 }
 
 .layout__topo {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: var(--sp-3) var(--sp-5);
   background: var(--cor-fundo-card);
   border-bottom: 1px solid var(--cor-borda);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+}
+
+.layout__topo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cor-destaque) 0%, transparent 40%);
 }
 
 .layout__marca {
@@ -43,11 +53,12 @@
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 999px;
-  background: var(--cor-destaque);
+  background: linear-gradient(150deg, var(--cor-destaque), var(--cor-destaque-hover));
   color: var(--cor-destaque-texto);
   font-size: var(--fs-xs);
   font-weight: 700;
   flex-shrink: 0;
+  box-shadow: 0 4px 10px -3px color-mix(in srgb, var(--cor-destaque) 60%, transparent);
 }
 
 .layout__info-usuario {

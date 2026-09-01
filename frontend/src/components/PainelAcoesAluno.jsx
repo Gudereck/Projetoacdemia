@@ -3,6 +3,7 @@ import { X } from "lucide-react";
 import { criarUsuario } from "../api/usuarios";
 import { criarMatricula, listarMatriculasPorAluno } from "../api/matriculas";
 import { gerarCobranca, listarPagamentosPorMatricula, registrarPagamento } from "../api/pagamentos";
+import { hojeISO } from "../utils/data";
 import "./PainelAcoesAluno.css";
 
 const FORMAS_PAGAMENTO = ["pix", "cartão", "boleto", "dinheiro"];
@@ -78,7 +79,7 @@ function SecaoLogin({ aluno }) {
 
 function SecaoMatricula({ aluno, planos, matriculas, aoMatricular }) {
   const [planoId, setPlanoId] = useState("");
-  const [dataInicio, setDataInicio] = useState(() => new Date().toISOString().slice(0, 10));
+  const [dataInicio, setDataInicio] = useState(() => hojeISO());
   const [erro, setErro] = useState(null);
   const [enviando, setEnviando] = useState(false);
 
@@ -146,10 +147,10 @@ function SecaoMatricula({ aluno, planos, matriculas, aoMatricular }) {
 function SecaoPagamento({ matriculas }) {
   const [matriculaId, setMatriculaId] = useState("");
   const [pagamentos, setPagamentos] = useState([]);
-  const [dataVencimento, setDataVencimento] = useState(() => new Date().toISOString().slice(0, 10));
+  const [dataVencimento, setDataVencimento] = useState(() => hojeISO());
   const [erro, setErro] = useState(null);
   const [registrandoId, setRegistrandoId] = useState(null);
-  const [dataPagamento, setDataPagamento] = useState(() => new Date().toISOString().slice(0, 10));
+  const [dataPagamento, setDataPagamento] = useState(() => hojeISO());
   const [formaPagamento, setFormaPagamento] = useState(FORMAS_PAGAMENTO[0]);
 
   useEffect(() => {

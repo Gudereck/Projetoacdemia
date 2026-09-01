@@ -8,24 +8,33 @@
 .admin-page__abas {
   display: flex;
   gap: var(--sp-1);
-  margin-bottom: var(--sp-4);
+  margin-bottom: var(--sp-5);
+  padding-bottom: var(--sp-3);
   border-bottom: 1px solid var(--cor-borda);
   overflow-x: auto;
 }
 
 .admin-page__aba {
   padding: var(--sp-2) var(--sp-4);
-  border: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
   background: none;
   font-size: var(--fs-sm);
   font-weight: 600;
   color: var(--cor-texto-suave);
   cursor: pointer;
-  border-bottom: 2px solid transparent;
   white-space: nowrap;
+  transition: background-color var(--duracao-transicao), color var(--duracao-transicao), border-color var(--duracao-transicao);
 }
 
-.admin-page__aba--ativa {
+.admin-page__aba:hover {
+  border-color: var(--cor-borda);
   color: var(--cor-texto);
-  border-bottom-color: var(--cor-destaque);
+}
+
+.admin-page__aba--ativa,
+.admin-page__aba--ativa:hover {
+  color: var(--cor-destaque-texto);
+  background: var(--cor-destaque);
+  border-color: var(--cor-destaque);
 }

@@ -47,10 +47,12 @@ export function WeekTable({ treinos }) {
       {ORDEM_DIAS.map((dia) => {
         const treinosDoDia = treinosPorDia[dia];
         const ehHoje = dia === hoje;
+        const descanso = treinosDoDia.length === 0;
+
         return (
           <section
             key={dia}
-            className={`week-table__dia${ehHoje ? " week-table__dia--hoje" : ""}`}
+            className={`week-table__dia${ehHoje ? " week-table__dia--hoje" : ""}${descanso ? " week-table__dia--descanso" : ""}`}
           >
             <header className="week-table__cabecalho-dia">
               <h3>{LABEL_DIA[dia]}</h3>
@@ -62,7 +64,7 @@ export function WeekTable({ treinos }) {
               )}
             </header>
 
-            {treinosDoDia.length === 0 ? (
+            {descanso ? (
               <p className="week-table__descanso">
                 <Moon size={16} strokeWidth={2} />
                 Dia de descanso — nenhum treino cadastrado.

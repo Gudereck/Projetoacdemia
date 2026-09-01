@@ -19,30 +19,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--raio-sm);
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 12px;
   flex-shrink: 0;
+  color: #fff;
+  transform: rotate(-4deg);
+  transition: transform var(--duracao-transicao) ease;
+}
+
+.stat-card:hover .stat-card__icone {
+  transform: rotate(0deg) scale(1.06);
 }
 
 .stat-card--destaque .stat-card__icone {
-  background: var(--cor-destaque-fundo-suave);
-  color: var(--cor-destaque-hover);
+  background: linear-gradient(150deg, var(--cor-destaque), var(--cor-destaque-hover));
+  box-shadow: 0 6px 14px -4px color-mix(in srgb, var(--cor-destaque) 55%, transparent);
 }
 
 .stat-card--sucesso .stat-card__icone {
-  background: var(--cor-sucesso-fundo-suave);
-  color: var(--cor-sucesso);
+  background: linear-gradient(150deg, var(--cor-sucesso), color-mix(in srgb, var(--cor-sucesso) 70%, black));
+  box-shadow: 0 6px 14px -4px color-mix(in srgb, var(--cor-sucesso) 55%, transparent);
 }
 
 .stat-card--info .stat-card__icone {
-  background: var(--cor-info-fundo-suave);
-  color: var(--cor-info);
+  background: linear-gradient(150deg, var(--cor-info), color-mix(in srgb, var(--cor-info) 70%, black));
+  box-shadow: 0 6px 14px -4px color-mix(in srgb, var(--cor-info) 55%, transparent);
 }
 
 .stat-card--neutro .stat-card__icone {
-  background: var(--cor-fundo-painel);
-  color: var(--cor-texto-suave);
+  background: linear-gradient(150deg, var(--cor-texto-suave), var(--cor-texto));
+  box-shadow: 0 6px 14px -4px color-mix(in srgb, var(--cor-texto) 45%, transparent);
 }
 
 .stat-card__valor {

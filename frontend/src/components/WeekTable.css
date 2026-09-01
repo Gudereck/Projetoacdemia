@@ -31,6 +31,30 @@
   margin: 0;
 }
 
+/* Dia sem treino: linha compacta em vez de cartão cheio, pra semana toda
+   caber sem virar uma parede repetida de "dia de descanso". */
+.week-table__dia--descanso:not(.week-table__dia--hoje) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  box-shadow: none;
+  background: transparent;
+  border-style: dashed;
+}
+
+.week-table__dia--descanso:not(.week-table__dia--hoje) .week-table__cabecalho-dia {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.week-table__dia--descanso .week-table__cabecalho-dia h3 {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+}
+
 .week-table__descanso {
   display: flex;
   align-items: center;
