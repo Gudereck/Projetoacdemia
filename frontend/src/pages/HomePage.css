@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
 .home-page {
   --cor-escuro: #1a1b17;
+  --fonte-display: "Anton", var(--fonte-sistema);
   font-family: var(--fonte-sistema);
   background: var(--cor-fundo);
   color: var(--cor-texto);
@@ -7,11 +10,20 @@
   overflow-x: hidden;
 }
 
-.home-page a {
+.home-page .marca,
+.home-page h1,
+.home-page h2 {
+  font-family: var(--fonte-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.home-page a:not(.botao) {
   color: var(--cor-destaque);
   text-decoration: none;
 }
-.home-page a:hover {
+.home-page a:not(.botao):hover {
   color: var(--cor-destaque-hover);
 }
 .home-page h1,
@@ -78,11 +90,12 @@
   animation: pulsarAnel 2.4s infinite;
 }
 
-/* ---- imagem ilustrada genérica ---- */
+/* ---- selo de ícone (planos, novidades) ---- */
 .home-page .foto {
   position: relative;
-  border-radius: var(--raio-md);
-  background: linear-gradient(150deg, var(--cor-destaque-fundo-suave), var(--cor-fundo-painel) 70%);
+  border-radius: 16px;
+  background: linear-gradient(155deg, var(--cor-destaque), var(--cor-destaque-hover));
+  box-shadow: 0 10px 20px -6px color-mix(in srgb, var(--cor-destaque) 50%, transparent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,12 +106,26 @@
   height: 62%;
   animation: flutuar 4s ease-in-out infinite;
 }
-.home-page .foto--escura {
-  background: linear-gradient(150deg, color-mix(in srgb, var(--cor-destaque) 35%, var(--cor-escuro)), var(--cor-escuro) 75%);
-}
 .home-page .foto--mini svg {
   width: 56%;
   height: 56%;
+}
+
+/* ---- foto real (retangular, com moldura) ---- */
+.home-page .foto-frame {
+  border-radius: var(--raio-md);
+  overflow: hidden;
+  height: 260px;
+}
+.home-page .foto-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.home-page .foto-frame:hover img {
+  transform: scale(1.04);
 }
 
 /* ---- barra superior e navegação ---- */
@@ -122,8 +149,8 @@
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  font-weight: 800;
   font-size: var(--fs-md);
+  letter-spacing: 0.02em;
 }
 .home-page .marca svg {
   color: var(--cor-destaque);
@@ -151,16 +178,14 @@
   align-items: center;
   overflow: hidden;
 }
-.home-page .hero .foto {
+.home-page .hero-foto {
   position: absolute;
   inset: 0;
-  border-radius: 0;
-}
-.home-page .hero .foto svg {
-  width: 46%;
-  height: 46%;
-  animation: flutuar 5s ease-in-out infinite, panFundo 16s ease-in-out infinite alternate;
-  transform-origin: 70% 60%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 35%;
+  animation: panFundo 18s ease-in-out infinite alternate;
 }
 .home-page .hero::after {
   content: "";
@@ -185,10 +210,8 @@
   display: block;
 }
 .home-page .hero h1 {
-  font-size: 2.6rem;
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
+  font-size: 3.2rem;
+  line-height: 1.02;
   margin-bottom: var(--sp-3);
 }
 .home-page .hero p.sub {
@@ -239,9 +262,8 @@
   display: block;
 }
 .home-page .faixa-destaque h2 {
-  font-size: 1.6rem;
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: 1.8rem;
+  line-height: 1.1;
   margin-bottom: var(--sp-3);
 }
 .home-page .faixa-destaque p {
@@ -249,9 +271,9 @@
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
-.home-page .faixa-destaque .foto {
+.home-page .faixa-destaque .foto-frame {
   height: 260px;
-  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.45);
 }
 
 /* ---- planos & horários ---- */
@@ -278,8 +300,7 @@
   display: block;
 }
 .home-page .bloco-texto h2 {
-  font-size: 1.75rem;
-  font-weight: 800;
+  font-size: 2rem;
   margin-bottom: var(--sp-4);
 }
 .home-page .bloco-texto h4 {
@@ -327,19 +348,21 @@
   box-shadow: var(--sombra-card-hover);
 }
 .home-page .cartao-icone-mini .icone {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--raio-md);
-  background: var(--cor-destaque-fundo-suave);
-  color: var(--cor-destaque);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(150deg, var(--cor-destaque), var(--cor-destaque-hover));
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto var(--sp-2);
+  margin: 0 auto var(--sp-3);
+  box-shadow: 0 6px 14px -4px color-mix(in srgb, var(--cor-destaque) 55%, transparent);
+  transform: rotate(-5deg);
   transition: transform var(--duracao-transicao) ease;
 }
 .home-page .cartao-icone-mini:hover .icone {
-  transform: rotate(-8deg) scale(1.08);
+  transform: rotate(0deg) scale(1.1);
 }
 .home-page .cartao-icone-mini h5 {
   font-size: var(--fs-sm);
@@ -388,12 +411,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: var(--raio-md);
-  background: var(--cor-destaque-fundo-suave);
-  color: var(--cor-destaque);
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 14px;
+  background: linear-gradient(150deg, var(--cor-destaque), var(--cor-destaque-hover));
+  color: #fff;
   margin-bottom: var(--sp-3);
+  box-shadow: 0 8px 16px -4px color-mix(in srgb, var(--cor-destaque) 55%, transparent);
+  transform: rotate(4deg);
+  transition: transform var(--duracao-transicao) ease;
+}
+.home-page .cartao-recurso:hover .cartao-recurso-icone {
+  transform: rotate(0deg) scale(1.08);
+}
+.home-page .cartao-recurso:nth-child(2n) .cartao-recurso-icone {
+  transform: rotate(-4deg);
+}
+.home-page .cartao-recurso:nth-child(2n):hover .cartao-recurso-icone {
+  transform: rotate(0deg) scale(1.08);
 }
 
 /* ---- newsletter ---- */
@@ -478,23 +513,24 @@
   text-align: center;
 }
 .home-page .professor .avatar {
-  width: 92px;
-  height: 92px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   margin: 0 auto var(--sp-2);
-  background: linear-gradient(150deg, var(--cor-destaque-fundo-suave), var(--cor-fundo-card) 75%);
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform var(--duracao-transicao) ease;
+  border: 3px solid var(--cor-fundo-card);
+  box-shadow: 0 0 0 2px var(--cor-borda);
+  transition: transform var(--duracao-transicao) ease, box-shadow var(--duracao-transicao) ease;
 }
 .home-page .professor:hover .avatar {
   transform: scale(1.06);
+  box-shadow: 0 0 0 2px var(--cor-destaque);
 }
-.home-page .professor .avatar svg {
+.home-page .professor .avatar img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .home-page .professor h5 {
   font-size: var(--fs-sm);
