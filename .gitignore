@@ -12,6 +12,9 @@ frontend/dist/
 referencias/
 spring-petclinic/
 
+# Variaveis de ambiente
+.env
+
 # IDE / OS
 .idea/
 *.iml
