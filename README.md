@@ -81,7 +81,7 @@ Acesse `http://localhost:5173`.
 ```
 backend/    API REST (Spring Boot) — controllers, services, entidades, migrations Flyway
 frontend/   SPA em React (Vite)
-docs/       Documentação de apoio (requisitos, infraestrutura do banco)
+docs/       Documentação de apoio (requisitos, arquitetura, API, infraestrutura do banco)
 ```
 
 ## Modelo de dados
@@ -90,3 +90,14 @@ docs/       Documentação de apoio (requisitos, infraestrutura do banco)
 (vínculo aluno–plano), `pagamento` e `treino`/`treino_exercicio` (ficha de
 treino por dia da semana). Detalhes do levantamento original em
 [docs/requisitos.md](docs/requisitos.md).
+
+## Documentação
+
+- [docs/arquitetura.md](docs/arquitetura.md) — camadas do backend, fluxo de
+  autenticação (JWT), estrutura do frontend.
+- [docs/api.md](docs/api.md) — referência de todos os endpoints, DTOs e
+  permissões por perfil.
+- [docs/requisitos.md](docs/requisitos.md) — levantamento de requisitos e
+  modelo de dados.
+- [docs/infraestrutura-bd.md](docs/infraestrutura-bd.md) — replicação do
+  Postgres (primário + réplica).
